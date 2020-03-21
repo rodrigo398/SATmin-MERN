@@ -15,16 +15,16 @@ const Navbar = ({
 }) => {
   useEffect(() => {
     getCanonRequested();
-  }, [getCanonRequested]);
+  }, [canons]);
 
   useEffect(() => {
     getTicketsRequested();
   }, [getTicketsRequested]);
 
-  const totalRequested = canons.reduce(
+  /* const totalRequested = canons.reduce(
     (total, canon) => (canon.status === 'Solicitado' ? total + 1 : total),
     0
-  );
+  ); */
 
   const authLinks = (
     <ul>
@@ -45,7 +45,7 @@ const Navbar = ({
         <a href="/canon-requested">
           <i className="fas fa-clipboard-check"></i>{' '}
           <span className="hide-sm"> Solicitudes </span>
-          {totalRequested}
+          {canonsRequested.length}
         </a>
       </li>
       <li>
